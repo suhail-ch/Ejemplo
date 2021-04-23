@@ -2,15 +2,6 @@ import { Request, Response } from "express";
 import user from "../models/user";
 import User from "../models/user"
 
-//Hacemos una busqueda en la BBDD de todo lo que hay en demo
-//Es una busqueda asincrona, por eso usamos el await
-/* export const getUsers = async (req: Request, res: Response) => {
-    //El await hace que la siguiente linea no se ejecute
-    //hasta que el resultado no se haya obtenido
-    const results = await User.find({});
-    return res.status(400).json(results);
-} */
-
 function getUsers(req:Request, res:Response): void {
     User.find({}).populate('courses').then((data)=>{
         let status: number = 200;

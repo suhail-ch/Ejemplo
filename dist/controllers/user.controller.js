@@ -4,14 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_1 = __importDefault(require("../models/user"));
-//Hacemos una busqueda en la BBDD de todo lo que hay en demo
-//Es una busqueda asincrona, por eso usamos el await
-/* export const getUsers = async (req: Request, res: Response) => {
-    //El await hace que la siguiente linea no se ejecute
-    //hasta que el resultado no se haya obtenido
-    const results = await User.find({});
-    return res.status(400).json(results);
-} */
 function getUsers(req, res) {
     user_1.default.find({}).populate('courses').then((data) => {
         let status = 200;

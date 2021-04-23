@@ -31,7 +31,7 @@ const userSchema = new Schema({
         type:Number
     },
     grado: {
-        type:String
+      type:String
     },
     courses: [{
         type: Schema.Types.ObjectId,
